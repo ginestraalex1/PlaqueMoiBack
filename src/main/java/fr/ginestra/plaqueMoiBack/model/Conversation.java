@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Conversation {
 
@@ -16,25 +19,4 @@ public class Conversation {
 	private String conversationName;
 	private String[] participantsUsername;
 	
-	
-	public String getUuidConversation() {
-		return uuidConversation;
-	}
-	public void setUuidConversation(String uuidConversation) {
-		this.uuidConversation = uuidConversation;
-	}
-	
-	public String getConversationName() {
-		return conversationName;
-	}
-	public void setConversationName(String conversationName) {
-		this.conversationName = conversationName;
-	}
-	
-	public String[] getParticipantsUsername() {
-		return participantsUsername;
-	}
-	public void setParticipantsUsername(String[] participantsUsername) {
-		this.participantsUsername = participantsUsername;
-	}
 }
