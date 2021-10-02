@@ -15,6 +15,7 @@ public class FriendRequest {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@org.hibernate.annotations.Type(type="uuid-char")
 	private String uuidRequest;
 	private Date requestDate;
 	private String emitterUsername;

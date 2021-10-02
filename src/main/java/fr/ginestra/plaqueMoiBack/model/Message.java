@@ -15,6 +15,7 @@ public class Message {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@org.hibernate.annotations.Type(type="uuid-char")
 	private String uuidMessage;
 	private Date sentDate;
 	private String emitterUsername;
