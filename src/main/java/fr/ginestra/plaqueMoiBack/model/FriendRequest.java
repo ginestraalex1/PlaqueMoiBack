@@ -19,8 +19,8 @@ public class FriendRequest {
 	private UUID uuidRequest;
 	private Date requestDate;
 	private String emitterUsername;
-	private boolean treated;
 	private String plateNumber;
+	private boolean treated;
 	private boolean canceled;
 	
 	public UUID getUuidRequest() {
@@ -58,6 +58,16 @@ public class FriendRequest {
 	}
 	public void setCanceled(boolean canceled) {
 		this.canceled = canceled;
+	}
+	
+
+	public String toString() {
+		return "Conversation:{uuidRequest : " + this.uuidRequest + ", " +
+				"requestDate : " + this.requestDate + ", " +
+				"emitterUsername : " + this.emitterUsername + ", " +
+				"plateNumber : " + this.plateNumber + ", " +
+				"treated : " + this.treated + ", " +
+				"canceled : " + this.canceled + "}";
 	}
 	
 }

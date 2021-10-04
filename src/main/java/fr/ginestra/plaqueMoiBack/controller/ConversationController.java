@@ -28,9 +28,6 @@ public class ConversationController {
     
     @PostMapping("/createConversation")
     public Conversation newConversation(@RequestBody Conversation newConversation) {
-    	System.out.println(newConversation.getConversationName());
-    	
-    	System.out.println(newConversation.generateUuidConversation());
     	return conversationService.saveConversation(newConversation);
     }
 }

@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Long>{
+public interface PersonRepository extends CrudRepository<Person, String>{
 
 }

@@ -53,4 +53,12 @@ public class Message {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	public String toString() {
+		return "Conversation:{uuidMessage : " + this.uuidMessage + ", " +
+				"sentDate : " + this.sentDate + ", " +
+				"emitterUsername : " + this.emitterUsername + ", " +
+				"conversationUuid : " + this.conversationUuid + ", " +
+				"message : " + this.message + "}";
+	}
 }

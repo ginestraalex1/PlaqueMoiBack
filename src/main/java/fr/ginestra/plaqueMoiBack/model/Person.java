@@ -1,7 +1,6 @@
 package fr.ginestra.plaqueMoiBack.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -13,11 +12,10 @@ import javax.persistence.Entity;
 public class Person {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String plateNumber;
 	private String userName;
 	private String firstName;
 	private String lastName;
-	private String plateNumber;
 	private String email;
 	private String password;
 	
@@ -56,5 +54,15 @@ public class Person {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public String toString() {
+		return "Conversation:{plateNumber : " + this.plateNumber + ", " +
+				"userName : " + this.userName + ", " +
+				"firstName : " + this.firstName + ", " +
+				"lastName : " + this.lastName + ", " +
+				"email : " + this.email + ", " +
+				"password : " + this.password + "}";
 	}
 }

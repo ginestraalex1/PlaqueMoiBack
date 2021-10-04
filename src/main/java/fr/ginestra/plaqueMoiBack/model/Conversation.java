@@ -53,4 +53,10 @@ public class Conversation {
 		}
 		return null;
 	}
+	
+	public String toString() {
+		return "Conversation:{uuidConversation : " + this.uuidConversation + ", " +
+				"conversationName : " + this.conversationName + ", " +
+				"participantsUsername : " + this.participantsUsername.toString() + "}";
+	}
 }
