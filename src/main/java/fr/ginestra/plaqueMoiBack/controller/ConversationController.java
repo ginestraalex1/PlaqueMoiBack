@@ -23,11 +23,13 @@ public class ConversationController {
     */
     @GetMapping("/conversations")
     public Iterable<Conversation> getEmployees() {
+    	System.out.println("on est dans get conv");
         return conversationService.getConversations();
     }
     
-    @PostMapping("/createConversation")
+    @PostMapping("/conversation")
     public Conversation newConversation(@RequestBody Conversation newConversation) {
+    	System.out.println("on est dans create conv");
     	return conversationService.saveConversation(newConversation);
     }
 }

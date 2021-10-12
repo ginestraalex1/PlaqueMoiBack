@@ -31,6 +31,7 @@ public class ConversationService {
     }
 
     public Conversation saveConversation(Conversation conversation) {
+    	System.out.println(conversation);
     	Conversation savedConversation = conversationRepository.save(conversation);
         return savedConversation;
     }

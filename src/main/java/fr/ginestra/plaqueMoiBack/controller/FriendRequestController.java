@@ -14,7 +14,7 @@ public class FriendRequestController {
 	@Autowired
 	private FriendRequestService friendRequestService;
 	
-	@GetMapping("/FriendRequests")
+	@GetMapping("/friendRequests")
 	private Iterable<FriendRequest> friendRequest(){
 		return friendRequestService.getFriendRequests();
 	}

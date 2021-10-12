@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public enum PersonError {
 	
-	ALREADY_EXIST("The plate number is already used", HttpStatus.INTERNAL_SERVER_ERROR); 
+	ALREADY_EXIST("{ \"Error \" : \"The plate number is already used.\" }", HttpStatus.INTERNAL_SERVER_ERROR); 
 
 	private final String message;
 	private final HttpStatus httpStatus;
