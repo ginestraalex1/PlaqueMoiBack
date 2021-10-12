@@ -19,7 +19,7 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
     
-    public Optional<Person> getPerson(final String plateNumber) {
+    public Optional<Person> getPerson(String plateNumber) {
         return personRepository.findById(plateNumber);
     }
 
@@ -27,7 +27,7 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public void deletePerson(final String plateNumber) {
+    public void deletePerson(String plateNumber) {
     	personRepository.deleteById(plateNumber);
     }
 

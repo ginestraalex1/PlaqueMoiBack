@@ -6,25 +6,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.ginestra.plaqueMoiBack.errors.excpetion.PersonException;
 import fr.ginestra.plaqueMoiBack.model.Person;
 import fr.ginestra.plaqueMoiBack.service.PersonService;
 
+
 @RestController
+@RequestMapping("/person")
 public class PersonController {
 	
 	@Autowired
 	private PersonService personService;
 	
 	
-	@GetMapping("/persons")
+	@GetMapping()
 	private Iterable<Person> getPersons(){
 		return personService.getPersons();
 	}
 	
-	@PostMapping("/person")
+	@PostMapping()
 	private ResponseEntity<String> createPerson(@RequestBody Person newPerson) {
 		try {
 			personService.savePerson(newPerson);

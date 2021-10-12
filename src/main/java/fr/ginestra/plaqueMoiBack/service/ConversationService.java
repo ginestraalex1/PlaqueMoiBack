@@ -3,6 +3,7 @@ package fr.ginestra.plaqueMoiBack.service;
 import lombok.Data;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,15 @@ public class ConversationService {
     @Autowired
     private ConversationRepository conversationRepository;
     
-    public Optional<Conversation> getConversation(final Long id) {
-        return conversationRepository.findById(id);
+    public Conversation getConversation(UUID id) {
+        return conversationRepository.findById(id).get();
     }
 
     public Iterable<Conversation> getConversations() {
         return conversationRepository.findAll();
     }
 
-    public void deleteConversation(final Long id) {
+    public void deleteConversation(UUID id) {
     	conversationRepository.deleteById(id);
     }
 
@@ -36,4 +37,11 @@ public class ConversationService {
         return savedConversation;
     }
     
+    public Conversation updateConversation(UUID id, Conversation updatedConversation) {
+    	Optional<Conversation> conversation = conversationRepository.findById(id);
+    	if(conversation.isEmpty()) {
+    		return conversationRepository.save(updatedConversation);
+    	}
+    	return conversationRepository.save(conversation.get().updateConversation(updatedConversation));
+    }
 }

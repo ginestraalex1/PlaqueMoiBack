@@ -1,6 +1,7 @@
 package fr.ginestra.plaqueMoiBack.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +18,15 @@ public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
     
-    public Optional<Message> getMessage(final Long id) {
-        return messageRepository.findById(id);
+    public Message getMessage(UUID id) {
+        return messageRepository.findById(id).get();
     }
 
     public Iterable<Message> getMessages() {
         return messageRepository.findAll();
     }
 
-    public void deleteMessage(final Long id) {
+    public void deleteMessage(UUID id) {
     	messageRepository.deleteById(id);
     }
 

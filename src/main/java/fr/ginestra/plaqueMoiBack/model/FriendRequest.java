@@ -60,6 +60,15 @@ public class FriendRequest {
 		this.canceled = canceled;
 	}
 	
+	public FriendRequest updateFriendRequest(FriendRequest updateFR) {
+		setCanceled(updateFR.isCanceled());
+		setEmitterUsername(updateFR.getEmitterUsername());
+		setPlateNumber(updateFR.getPlateNumber());
+		setRequestDate(updateFR.getRequestDate());
+		setTreated(updateFR.isTreated());
+		return this;
+	}
+	
 
 	public String toString() {
 		return "Conversation:{uuidRequest : " + this.uuidRequest + ", " +

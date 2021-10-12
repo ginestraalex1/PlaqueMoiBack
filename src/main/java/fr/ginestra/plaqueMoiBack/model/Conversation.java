@@ -54,6 +54,13 @@ public class Conversation {
 		return null;
 	}
 	
+	public Conversation updateConversation(Conversation udpatedConversation) {
+		setConversationName(udpatedConversation.getConversationName());
+		setParticipantsUsername(udpatedConversation.getParticipantsUsername());
+		return this;
+	}
+	
+	
 	public String toString() {
 		return "Conversation:{uuidConversation : " + this.uuidConversation + ", " +
 				"conversationName : " + this.conversationName + ", " +
