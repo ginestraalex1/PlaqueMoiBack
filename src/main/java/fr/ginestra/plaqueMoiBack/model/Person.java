@@ -18,7 +18,14 @@ public class Person {
 	private String lastName;
 	private String email;
 	private String password;
+	private String role;
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -63,6 +70,7 @@ public class Person {
 				"firstName : " + this.firstName + ", " +
 				"lastName : " + this.lastName + ", " +
 				"email : " + this.email + ", " +
+				"role : " + this.role + ", " +
 				"password : " + this.password + "}";
 	}
 }

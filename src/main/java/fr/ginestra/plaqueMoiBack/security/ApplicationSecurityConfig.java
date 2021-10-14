@@ -41,7 +41,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers("/person**").hasAuthority(ADMIN_READ.getPermission())
+			.antMatchers("/person**").hasRole(ADMIN.name())
 			.antMatchers("/conversations**").hasAuthority(ADMIN_READ.getPermission())
 			.anyRequest()
 			.authenticated()
@@ -59,18 +59,21 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 			p.setPlateNumber("AAAA");
 			p.setUserName("Alex");
 			p.setPassword(this.passwordEncoder.encode("alexpassword"));
+			p.setRole(USER.name());
 			this.personService.savePerson(p);
 
 			p = new Person();
 			p.setPlateNumber("BBBB");
 			p.setUserName("Jean");
 			p.setPassword(this.passwordEncoder.encode("jeanpassword"));
+			p.setRole(USER.name());
 			this.personService.savePerson(p);
 
 			p = new Person();
 			p.setPlateNumber("CCCC");
 			p.setUserName("Admin");
-			p.setPassword("adminpassword");
+			p.setPassword(this.passwordEncoder.encode("adminpassword"));
+			p.setRole(ADMIN.name());
 			this.personService.savePerson(p);
 			
 			
@@ -82,7 +85,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 			userDetailList.add(User.builder()
 									.username(person.getUserName())
 									.password(person.getPassword())
-									.roles()
+									.roles(person.getRole())
 									.build());
 		}
 		
@@ -90,6 +93,5 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		userDetailList.toArray(userDetailTab);
 			
 		return new InMemoryUserDetailsManager(userDetailTab);
-		
 	}
 }
