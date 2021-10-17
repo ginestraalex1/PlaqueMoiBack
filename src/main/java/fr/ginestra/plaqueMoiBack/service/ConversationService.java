@@ -16,6 +16,7 @@ import fr.ginestra.plaqueMoiBack.repository.ConversationRepository;
 @Service
 public class ConversationService {
 
+	
     @Autowired
     private ConversationRepository conversationRepository;
     
